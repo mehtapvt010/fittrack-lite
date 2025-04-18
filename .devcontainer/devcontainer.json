@@ -1,0 +1,22 @@
+{
+    "name": "FitTrack Dev",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.defaultProfile.linux": "zsh"
+        },
+        "extensions": [
+          "esbenp.prettier-vscode",
+          "dbaeumer.vscode-eslint",
+          "ms-azuretools.vscode-docker",
+          "prisma.prisma"
+        ]
+      }
+    },
+    "forwardPorts": [5432, 6379],
+    "postCreateCommand": "npm install"
+  }
+  
