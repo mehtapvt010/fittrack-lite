@@ -15,8 +15,35 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   email     String   @unique
-  name      String?
+  password  String
   createdAt DateTime @default(now())
+
+  workouts Workout[]
+  meals    Meal[]
+}
+
+model Workout {
+  id             String   @id @default(cuid())
+  userId         String
+  name           String
+  duration       Int
+  caloriesBurned Int
+  createdAt      DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Meal {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  calories  Int
+  protein   Int
+  carbs     Int
+  fat       Int
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
 }

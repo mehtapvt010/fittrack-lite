@@ -120,7 +120,27 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
+  password: 'password',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.WorkoutScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
   name: 'name',
+  duration: 'duration',
+  caloriesBurned: 'caloriesBurned',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.MealScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  calories: 'calories',
+  protein: 'protein',
+  carbs: 'carbs',
+  fat: 'fat',
   createdAt: 'createdAt'
 };
 
@@ -134,14 +154,11 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
-
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Workout: 'Workout',
+  Meal: 'Meal'
 };
 
 /**
