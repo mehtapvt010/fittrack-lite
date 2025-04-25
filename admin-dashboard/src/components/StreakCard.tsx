@@ -30,7 +30,7 @@ export default function StreakCard() {
   }, []);
 
   return (
-    <Card className="w-full animate-in fade-in slide-in-from-top-4 duration-700">
+    <Card className="w-full bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 shadow-xl rounded-2xl">
       <CardContent className="p-6">
         {streak > 0 ? (
           <p className="text-lg font-semibold text-green-600 dark:text-green-400">

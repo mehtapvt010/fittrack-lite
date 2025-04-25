@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
 import workoutRoutes from './routes/workouts';
 import userRoutes from './routes/users';
+import dashboardRoutes from './routes/dashboard';
+import uploadRoutes from './routes/uploads';
+import mealRoutes from './routes/meals';
 
 dotenv.config();
 
@@ -20,7 +23,9 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/user", userRoutes);
-
+app.use("/api/metrics", dashboardRoutes);
+app.use("/api/uploads", uploadRoutes);
+app.use("/api/meals", mealRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {

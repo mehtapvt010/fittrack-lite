@@ -38,7 +38,7 @@ export default function GoalProgressCard() {
   };
 
   return (
-    <Card className="w-full animate-in fade-in zoom-in duration-700">
+    <Card className="w-full bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 shadow-xl rounded-2xl">
       <CardContent className="p-6 space-y-2">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold">Weekly Goal Progress</h2>

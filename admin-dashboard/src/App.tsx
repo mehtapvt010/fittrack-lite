@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import "./index.css";
 import Workouts from "./pages/Workouts";
 import History from "./pages/WorkoutHistory";
+import SettingsPage from "./pages/Settings";
 
 
 function App() {
@@ -40,6 +41,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <History />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <SettingsPage />
                 </ProtectedRoute>
               }
             />

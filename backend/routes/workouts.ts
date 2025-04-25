@@ -3,6 +3,8 @@ import { PrismaClient } from "@prisma/client";
 import { authenticateToken, AuthRequest } from "../middleware/auth";
 import { createWorkoutSchema } from "../validators/workout";
 import {startOfDay} from "date-fns";
+import { redis } from "../lib/redis";
+import dashboard from "../services/dashboard";
 
 const prisma = new PrismaClient();
 const router = Router();
@@ -21,9 +23,48 @@ router.post("/", authenticateToken, async (req: AuthRequest, res, next) => {
       },
     });
 
+    // 1. Fetch user’s goal from DB
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { weeklyGoal: true },
+    });
+    const weeklyGoal = user?.weeklyGoal ?? 20000; // fallback just in case
+    
+    // 2. Check weekly volume
+    const weeklyVolume = await dashboard.thisWeekVolume(userId);
+    //console.log("✅ Weekly volume:", weeklyVolume);
+
+    // 3. Set or clear Redis flag based on actual goal
+    if (weeklyVolume >= weeklyGoal) {
+      await redis.set(`goalReached:${userId}`, true, { ex: 60 * 60 * 6 }); // 6h TTL
+    } else {
+      await redis.del(`goalReached:${userId}`);
+    }
+
+    const todayStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+    const total = (workout.sets as any).reduce(
+      (acc : number, s : any) => acc + s.reps * s.weight,
+      0
+    );
+
+    // Optional: log in console
+    console.log("🚀 Logging to Redis stream:", {
+      date: todayStr,
+      exercise: parsed.exercise,
+      volume: total.toString(),
+    });
+
+    await redis.xadd(`workoutLog:${userId}`, "*", {
+      date: todayStr,
+      exercise: parsed.exercise,
+      volume: total.toString(),
+    });
+
     res.status(201).json(workout);
   } catch (err) {
-    next(err);
+    console.error("❌ Workout POST failed:", err);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

@@ -42,6 +42,11 @@ const Navbar = () => {
       }>
         Workout History
       </NavLink>
+      <NavLink to="/settings" className={({ isActive }) =>
+        isActive ? "text-blue-500 font-semibold" : "text-gray-500"
+      }>
+        Settings
+      </NavLink>
 
       <div className="flex items-center gap-4">
         <button onClick={toggleTheme} className="transition-all hover:scale-110">

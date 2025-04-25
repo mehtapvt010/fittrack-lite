@@ -12,25 +12,32 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
     "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.14.1",
     "@types/supertest": "^6.0.3",
+    "@types/uuid": "^10.0.0",
     "nodemon": "^3.1.9",
     "prisma": "^6.6.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.787.0",
+    "@aws-sdk/s3-presigned-post": "^3.787.0",
+    "@aws-sdk/util-create-request": "^3.775.0",
     "@prisma/client": "^6.6.0",
+    "@upstash/redis": "^1.34.8",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "pino": "^9.6.0",
     "supertest": "^7.1.0",
     "zod": "^3.24.3"
   }

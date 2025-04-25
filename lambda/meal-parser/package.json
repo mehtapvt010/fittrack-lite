@@ -1,0 +1,38 @@
+{
+    "name": "meal-parser",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "dist/handler.js",
+    "scripts": {
+        "build": "esbuild src/handler.ts --bundle --platform=node --target=node20 --outfile=dist/handler.js --format=cjs",
+        "watch": "nodemon --exec npm run build",
+        "test": "node dist/handler.js"
+    },
+    "dependencies": {
+        "@fast-csv/parse": "^5.0.0",
+        "dotenv": "^16.4.0",
+        "pg": "latest",
+        "uuid": "^11.1.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.0",
+        "esbuild": "^0.21.0",
+        "nodemon": "^3.1.0"
+    },
+    "compilerOptions": {
+        "types": [
+            "node",
+            "aws-lambda"
+        ],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "target": "es2022",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "outDir": "dist"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
