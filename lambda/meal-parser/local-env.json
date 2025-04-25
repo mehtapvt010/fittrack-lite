@@ -1,7 +1,0 @@
-{
-    "MealParserFunction": {
-      "PG_URL": "postgresql://postgres:postgres@host.docker.internal:6543/fittrack",
-      "AWS_REGION": "us-east-1"
-    }
-  }
-  
