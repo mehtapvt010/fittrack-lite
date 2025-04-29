@@ -30,7 +30,7 @@ export class FittrackStack extends Stack {
       removalPolicy: RemovalPolicy.DESTROY,
       cors: [{
         allowedMethods: [HttpMethods.POST, HttpMethods.PUT, HttpMethods.GET],
-        allowedOrigins: ["http://localhost:5173"], // or restrict to http://localhost:5173
+        allowedOrigins: ["http://localhost:5173", "https://fittrack-lite.vercel.app"], // or restrict to http://localhost:5173
         allowedHeaders: ["*"],
         exposedHeaders: ["ETag"],
         maxAge: 3000
