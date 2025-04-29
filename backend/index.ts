@@ -14,10 +14,18 @@ dotenv.config();
 
 export const app = express();
 
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true,
-}));
+const allowedOrigins = [
+  'http://localhost:5173',     // for local dev
+  'http://localhost:4173',     // for vite preview
+  process.env.FRONTEND_ORIGIN  // for production (Vercel URL)
+].filter(origin => origin !== undefined);
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
