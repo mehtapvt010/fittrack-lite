@@ -1,11 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
 datasource db {
@@ -13,42 +8,54 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Meal {
+  id        String   @id @default(cuid())
+  userId    String
+  protein   Int
+  calories  Int
+  carbs     Int
+  createdAt DateTime @default(now())
+  mismatch  Boolean  @default(false)
+  fat       Int
+  name      String
+  User      User     @relation(fields: [userId], references: [id])
+}
+
 model User {
-  id                  String   @id @default(cuid())
-  email               String   @unique
-  password            String
-  createdAt           DateTime @default(now())
-  weeklyGoal          Int      @default(20000)
-  weeklyCalorieGoal   Int      @default(14000)
-  proteinTarget       Int      @default(1050)
-  carbsTarget         Int      @default(1750)
-  fatTarget           Int      @default(500)
-  workouts            Workout[]
-  meals               Meal[]
+  id                String          @id
+  email             String          @unique
+  password          String
+  createdAt         DateTime        @default(now())
+  weeklyGoal        Int             @default(20000)
+  weeklyCalorieGoal Int             @default(14000)
+  carbsTarget       Int             @default(1750)
+  fatTarget         Int             @default(500)
+  proteinTarget     Int             @default(1050)
+  Meal              Meal[]
+  Workout           Workout[]
+  mismatch          MacroMismatch[]
 }
 
 model Workout {
-  id       String   @id @default(cuid())
-  userId   String
-  date     DateTime @default(now())
-  exercise String
-  sets     Json
+  id        String   @id
+  userId    String
   createdAt DateTime @default(now())
-
-  user     User     @relation(fields: [userId], references: [id])
+  date      DateTime @default(now())
+  exercise  String
+  sets      Json
+  User      User     @relation(fields: [userId], references: [id])
 }
 
-
-
-model Meal {
-  id         String   @id @default(cuid())
-  userId     String
-  name       String
-  calories   Int
-  protein    Int
-  carbs      Int
-  fat        Int
-  createdAt  DateTime @default(now())
-
-  user       User     @relation(fields: [userId], references: [id])
+model MacroMismatch {
+  id           String   @id @default(uuid())
+  userId       String
+  date         DateTime
+  calorieDelta Int // positive = over target, negative = under
+  proteinDelta Int
+  carbsDelta   Int
+  fatDelta     Int
+  resolved     Boolean  @default(false)
+  emailed      Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  User         User     @relation(fields: [userId], references: [id])
 }

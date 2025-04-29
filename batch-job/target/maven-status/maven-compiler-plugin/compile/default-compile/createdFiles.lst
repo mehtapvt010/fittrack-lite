@@ -1,0 +1,8 @@
+com/fittracklite/batchjob/repository/WorkoutRepository.class
+com/fittracklite/batchjob/model/Meal.class
+com/fittracklite/batchjob/repository/MealRepository.class
+com/fittracklite/batchjob/model/User.class
+com/fittracklite/batchjob/BatchjobApplication.class
+com/fittracklite/batchjob/service/SummaryService.class
+com/fittracklite/batchjob/model/Workout.class
+com/fittracklite/batchjob/repository/UserRepository.class

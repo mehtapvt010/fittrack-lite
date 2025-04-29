@@ -5,6 +5,7 @@ import { createWorkoutSchema } from "../validators/workout";
 import {startOfDay} from "date-fns";
 import { redis } from "../lib/redis";
 import dashboard from "../services/dashboard";
+import { v4 as uuidv4 } from "uuid";
 
 const prisma = new PrismaClient();
 const router = Router();
@@ -16,6 +17,7 @@ router.post("/", authenticateToken, async (req: AuthRequest, res, next) => {
 
     const workout = await prisma.workout.create({
       data: {
+        id: uuidv4(),
         userId,
         date: parsed.date,
         exercise: parsed.exercise,

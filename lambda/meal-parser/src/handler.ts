@@ -12,7 +12,7 @@ const { Readable } = require("stream");
  */
 exports.handler = async (event: any) => {
   const s3 = new S3Client({ region: process.env.AWS_REGION });
-  const pg = new Client({ connectionString: process.env.PG_URL });
+  const pg = new Client({ connectionString: process.env.PG_URL, ssl: { rejectUnauthorized: false } });
   await pg.connect();
 
   for (const rec of event.Records) {

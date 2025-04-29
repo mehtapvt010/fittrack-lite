@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { NavLink } from "react-router-dom";
+import { useAlerts } from "../context/AlertContext";
+import { BellIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
   const { user, logout } = useAuth();
+  const { unread } = useAlerts();
 
   // Load theme preference on mount
   useEffect(() => {
@@ -47,6 +50,15 @@ const Navbar = () => {
       }>
         Settings
       </NavLink>
+
+      <div className="relative">
+      <BellIcon className="h-6 w-6" />
+      {unread > 0 && (
+        <span className="absolute -top-1 -right-1 h-4 min-w-[1rem] rounded-full bg-destructive text-xs text-white flex items-center justify-center animate-ping-once">
+          {unread}
+        </span>
+      )}
+    </div>
 
       <div className="flex items-center gap-4">
         <button onClick={toggleTheme} className="transition-all hover:scale-110">

@@ -215,3 +215,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes ping-once {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(1.4); opacity: 0; }
+}
+.animate-ping-once { animation: ping-once 0.75s 1; }

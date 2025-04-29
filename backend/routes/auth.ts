@@ -4,6 +4,7 @@ import { hashPassword, comparePassword } from '../utils/hash';
 import { generateToken } from '../utils/jwt';
 import { z } from 'zod';
 import { authenticateToken, AuthRequest } from "../middleware/auth";
+import { v4 as uuidv4 } from "uuid";
 
 
 const router = express.Router();
@@ -34,7 +35,9 @@ router.post(
 
       const hashed = await hashPassword(password);
       const user = await prisma.user.create({
-        data: { email, password: hashed },
+        data: { id: uuidv4(),
+          email, 
+          password: hashed },
       });
 
       res.json({ token: generateToken(user.id) });

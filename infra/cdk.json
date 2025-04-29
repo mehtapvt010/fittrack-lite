@@ -18,6 +18,8 @@
   },
   "context": {
     "stage" : "dev",
+    "SES_REGION" : "us-east-1",
+    "SES_FROM_EMAIL" : "mehtapvt010@gmail.com",
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "@aws-cdk/core:checkSecretUsage": true,
     "@aws-cdk/core:target-partitions": [

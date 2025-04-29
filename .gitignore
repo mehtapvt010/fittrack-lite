@@ -7,3 +7,81 @@ build/
 .DS_Store
 local-env.json
 docker-compose.yml
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Docker
+**/docker-compose.override.yml
+**/Dockerfile*
+**/docker-compose.yml
+**/.env # If you need environment variables in Docker (avoid this in production)
+
+# Lambda (if any)
+**/lambda/.env
+**/lambda/local-env.json
+
+# Build output
+/dist
+/build
+/coverage
+/.next
+/public/static
+
+# Logs
+*.log
+*.out
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Prisma (if using Prisma ORM)
+.prisma/
+
+# AWS Credentials (local only)
+.aws/
+
+# Environment files (local, sensitive settings)
+.env
+.env.local
+
+# NPM package directories
+*.tgz
+
+# Database files
+*.sqlite
+*.db
+
+# Yarn & NPM files (optional, based on the tool you use)
+npm-debug.log
+yarn.lock
+
+# Local development build directories (optional for other tools)
+.idea/
+.vscode/
+
+# Tailwind config (optional, if needed to ignore any specific folder for custom tailwind styles)
+tailwind.config.js
+
+# General files to ignore
+*.swp
+*.swo
+
+# Ignore test or debug directories
+tests/debug/
+tests/temp/
+
+# Ignore hidden files in the root and subfolders that are specific to development tools
+.*.swp
+
+# Ignore logs from any test running libraries
+*.test.log

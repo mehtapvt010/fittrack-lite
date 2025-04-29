@@ -3,6 +3,8 @@ import * as cdk from 'aws-cdk-lib';
 import { InfraStack } from '../lib/infra-stack';
 import { App } from 'aws-cdk-lib';
 import { FittrackStack } from '../lib/fittrack-stack';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const app = new App();
 new InfraStack(app, 'InfraStack', {

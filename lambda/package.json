@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "date-fns": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.3"
+  }
+}

@@ -1,0 +1,8 @@
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/BatchjobApplication.java
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/model/Meal.java
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/model/User.java
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/model/Workout.java
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/repository/MealRepository.java
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/repository/UserRepository.java
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/repository/WorkoutRepository.java
+/Users/shivangschool/Desktop/fittrack-lite/batch-job/src/main/java/com/fittracklite/batchjob/service/SummaryService.java
