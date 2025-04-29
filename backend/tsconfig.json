@@ -117,6 +117,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": false
   },
-  "include": ["**/*.ts"],  // 👍 all TS files under backend
+  "include": ["./**/*.ts"],  // 👍 all TS files under backend
   "exclude": ["node_modules", "dist"]
 }
