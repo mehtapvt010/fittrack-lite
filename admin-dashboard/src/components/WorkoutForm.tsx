@@ -1,7 +1,7 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createWorkoutSchema } from "../../../backend/validators/workout";
-import { CreateWorkoutInput } from "../../../backend/validators/workout";
+import { createWorkoutSchema } from "../validators/workout";
+import { CreateWorkoutInput } from "../validators/workout";
 import { createWorkout } from "../api/workouts";
 import { toast } from "react-hot-toast";
 import { Button } from "../components/ui/button";
