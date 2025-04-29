@@ -5,7 +5,6 @@ import { format } from 'date-fns';
 import { parseISO } from 'date-fns/parseISO';
 import { isWithinInterval } from 'date-fns/isWithinInterval';
 import { Button } from "../components/ui/button";
-import DarkModeToggle from "../components/DarkModeToggle";
 import Navbar from "../components/Navbar";
 
 export default function WorkoutHistory() {

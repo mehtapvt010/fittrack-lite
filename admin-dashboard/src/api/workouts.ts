@@ -1,5 +1,5 @@
 import axios from "./axios";
-import { CreateWorkoutInput } from "../../../backend/validators/workout"; // path alias ok if tsconfig paths set
+import { CreateWorkoutInput } from "../validators/workout";
 import { Workout } from "../types";
 import { QueryClient } from "@tanstack/react-query";
 

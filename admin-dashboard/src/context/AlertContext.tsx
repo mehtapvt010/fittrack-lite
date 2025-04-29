@@ -1,13 +1,12 @@
 import { createContext, useContext } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { fetchMismatches, resolveMismatch } from '../api/mismatches';
+import { useQuery } from '@tanstack/react-query';
+import { fetchMismatches } from '../api/mismatches';
 import { toast } from 'sonner';               // shadcn-compatible toaster
 import React from 'react';
 
 const AlertCtx = createContext({ unread: 0 });
 
 export const AlertProvider = ({ children }: React.PropsWithChildren) => {
-  const qc = useQueryClient();
   const { data: mismatches = [] } = useQuery({
     queryKey: ['mismatches'],
     queryFn: fetchMismatches,

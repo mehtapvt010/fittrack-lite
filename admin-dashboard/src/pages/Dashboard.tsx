@@ -14,7 +14,6 @@ import MealCard from "../components/MealCard";
 import MacroChart from "../components/MacroChart";
 import WeeklyMealChart from "../components/WeeklyMealChart";
 import MacroGoalProgress from "../components/MacroGoalProgress";
-import CalorieGoalSettings from "../components/CalorieGoalSettings";
 import MacroBreakdownCard from "../components/MacroBreakdownCard";
 
 const Dashboard = () => {
