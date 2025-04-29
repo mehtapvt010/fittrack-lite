@@ -17,8 +17,8 @@ export const app = express();
 const allowedOrigins = [
   'http://localhost:5173',     // for local dev
   'http://localhost:4173',     // for vite preview
-  process.env.FRONTEND_ORIGIN  // for production (Vercel URL)
-].filter(origin => origin !== undefined);
+  "https://fittrack-lite.vercel.app",  // for production (Vercel URL)
+];
 
 app.use(
   cors({
